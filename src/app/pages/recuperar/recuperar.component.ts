@@ -2,21 +2,48 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+/**
+ * Componente RecuperarComponent
+ * Permite a los usuarios recuperar y cambiar su contraseña
+ */
 @Component({
   selector: 'app-recuperar',
   templateUrl: './recuperar.component.html',
   styleUrls: ['./recuperar.component.css']
 })
 export class RecuperarComponent implements OnInit {
-
+  /**
+   * Formulario para recuperar contraseña
+   */
   recuperarForm!: FormGroup;
+  /**
+   * Formulario para cambiar contraseña
+   */
   cambioForm!: FormGroup;
+  /**
+   * Mensaje de error que se muestra al usuario
+   */
   error: string = '';
+  /**
+   * Mensaje de éxito o información que se muestra al usuario
+   */
   mensaje: string = '';
+  /**
+   * Objeto que almacena el usuario encontrado al recuperar la contraseña
+   */
   usuarioEncontrado: any = null;
+
+  /**
+   * Constructor del componente
+   * @param fb FormBuilder para construir formularios reactivos
+   * @param router Router para navegar entre rutas
+   */
 
   constructor(private fb: FormBuilder, private router: Router) {}
 
+  /**
+   * Inicializa los formularios de recuperación y cambio de contraseña con validaciones.
+   */
   ngOnInit(): void {
     this.recuperarForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
@@ -30,14 +57,23 @@ export class RecuperarComponent implements OnInit {
     });
   }
 
+  /**
+   * Acceso a los controles del formulario de recuperación
+   */
   get f() {
     return this.recuperarForm.controls;
   }
-
+/**
+ * Acceso a los controles del formulario de cambio de contraseña
+ */
   get c() {
     return this.cambioForm.controls;
   }
 
+  /**
+   * Busca al usuario por email ingresado y muestra su contraseña actual si se encuentra.
+   * Si no se encuentra, muestra un mensaje de error.
+   */
   recuperar(): void {
     this.error = '';
     this.mensaje = '';
@@ -61,6 +97,11 @@ export class RecuperarComponent implements OnInit {
       setTimeout(() => this.mensaje = '', 5000);
     }
   }
+
+  /**
+   * Cambia la contraseña del usuario encontrado si el formulario es válido.
+   * Actualiza los datos en localStorage y redirige al login tras unos segundos.
+   */
 
   cambiarPassword(): void {
     if (this.cambioForm.invalid || !this.usuarioEncontrado) {

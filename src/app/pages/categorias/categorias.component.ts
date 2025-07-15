@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+/**
+ * Componente CategoriasComponent
+ * 
+ * Muestra los juegos filtrados por categoría según la URL.
+ * Permite a los usuarios agregar juegos al carrito y a los administradores editar información de los juegos.
+ */
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
@@ -13,8 +19,17 @@ export class CategoriasComponent implements OnInit {
   juegos: any[] = [];
   sesion: any = null;
 
+  /**
+   * Constructor del componente.
+   * @param route Servicio de rutas activas para acceder a los parámetros de la URL.
+   */
   constructor(private route: ActivatedRoute) {}
 
+  /**
+   * Inicializa el componente.
+   * Obtiene la sesión del usuario desde localStorage y filtra los juegos por categoría según el parámetro de la URL.
+   * Suscribe a los cambios de parámetros para actualizar la lista de juegos cuando cambie la categoría.
+   */
   ngOnInit(): void {
     // Obtener sesión
     const sesionStr = localStorage.getItem('sesion');
@@ -35,6 +50,13 @@ export class CategoriasComponent implements OnInit {
     });
   }
 
+  /**
+   * Permite a los administradores editar un juego.
+   * Muestra prompts para editar nombre, descripción, precio y si está en oferta.
+   * Guarda los cambios en localStorage.
+   * 
+   * @param juego Objeto del juego a editar.
+   */
   editar(juego: any): void {
     if (!this.sesion || this.sesion.tipo !== 'admin') return;
 
@@ -63,6 +85,11 @@ export class CategoriasComponent implements OnInit {
     }
   }
 
+  /**
+   * Agrega un juego al carrito del usuario actual.
+   * Si el juego ya existe en el carrito, incrementa la cantidad.
+   * @param juego Objeto del juego a agregar al carrito.
+   */
   agregarAlCarrito(juego: any): void {
     if (!this.sesion || this.sesion.tipo !== 'usuario') {
       alert('Debes iniciar sesión como usuario.');
@@ -84,6 +111,12 @@ export class CategoriasComponent implements OnInit {
     alert('¡Agregado al carrito!');
   }
 
+  /**
+   * Convierte el nombre de un juego a una ruta amigable (lowercase y guiones).
+   * 
+   * @param nombre Nombre original del juego.
+   * @returns Ruta formateada en minúsculas y con guiones.
+   */
   formatearRuta(nombre: string): string {
     return nombre.toLowerCase().replace(/\s+/g, '-');
   }

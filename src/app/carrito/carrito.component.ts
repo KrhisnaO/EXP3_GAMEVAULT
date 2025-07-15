@@ -50,8 +50,8 @@ export class CarritoComponent implements OnInit {
   }
 
   /**
-   * Carga el carrito de compras desde el almacenamiento local.
-   * Calcula el total de los productos en el carrito.
+   * Carga los productos del carrito desde localStorage.
+   * Calcula el total actual del carrito.
    */
 
   cargarCarrito() {
@@ -60,12 +60,10 @@ export class CarritoComponent implements OnInit {
   }
 
   /**
-   * 
-   * @param index Índice del producto a eliminar del carrito.
-   * Elimina el producto del carrito y actualiza el almacenamiento local.
-   * Si el carrito queda vacío, se elimina del almacenamiento local.
-   * Si el carrito no está vacío, se actualiza el almacenamiento local con los productos restantes.
+   * Elimina un producto del carrito por su índice.
+   * @param index Índice del producto en el array del carrito.
    */
+
   eliminar(index: number): void {
     this.carrito.splice(index, 1);
     localStorage.setItem(this.cCarrito, JSON.stringify(this.carrito));
@@ -73,10 +71,8 @@ export class CarritoComponent implements OnInit {
   }
 
   /**
-   * Vacía el carrito de compras.
-   * Elimina todos los productos del carrito y actualiza el almacenamiento local.
-   * Si el carrito estaba vacío, se elimina del almacenamiento local.
-   * Si el carrito no estaba vacío, se actualiza el almacenamiento local para reflejar que está vacío.
+   * Vacía completamente el carrito del usuario.
+   * Elimina el carrito del localStorage y actualiza la vista.
    */
 
   vaciarCarrito(): void {
@@ -85,10 +81,9 @@ export class CarritoComponent implements OnInit {
   }
 
   /**
-   * Verifica si el carrito de compras está vacío. 
-   * Devuelve true si el carrito está vacío, false en caso contrario.
+   * Simula la acción de compra del usuario.
+   * Si el carrito no está vacío, muestra un mensaje de agradecimiento y lo vacía.
    */
-
   comprar(): void {
     if (this.carrito.length === 0) {
       alert('Tu carrito está vacío.');
@@ -99,13 +94,10 @@ export class CarritoComponent implements OnInit {
     this.vaciarCarrito();
   }
 
-  /**
-   * 
-   * @param index Índice del producto en el carrito.
-   * @param cantidad Nueva cantidad del producto.
-   * Actualiza la cantidad de un producto en el carrito.
-   * Si la cantidad es menor que 1, no se actualiza.
-   * Actualiza el almacenamiento local con la nueva cantidad.
+   /**
+   * Actualiza la cantidad de un producto específico en el carrito.
+   * @param index Índice del producto en el array del carrito.
+   * @param cantidad Nueva cantidad a asignar al producto.
    */
 
   actualizarCantidad(index: number, cantidad: number): void {
