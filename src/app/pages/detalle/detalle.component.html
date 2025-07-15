@@ -1,0 +1,32 @@
+<main class="container" *ngIf="juego">
+  <article class="detalle-juego fade-in-up">
+    <div class="detalle-imagen">
+      <img [src]="juego.imagen" [alt]="juego.nombre" loading="lazy">
+    </div>
+    <div class="detalle-info">
+      <h1>{{ juego.nombre }}</h1>
+      <p class="descripcion">{{ juego.descripcion }}</p>
+
+      <ul class="ficha-tecnica">
+        <li><strong>Edad:</strong> {{ juego.edad }}</li>
+        <li><strong>Jugadores:</strong> {{ juego.jugadores }}</li>
+        <li><strong>Duración:</strong> {{ juego.duracion }}</li>
+        <li><strong>Mecánicas:</strong> {{ juego.mecanicas }}</li>
+      </ul>
+
+      <div class="precios">
+        <span class="precio-actual">
+          {{ juego.precio | currency:'CLP':'symbol':'1.0-0' }}
+        </span>
+        <span class="precio-original" *ngIf="juego.oferta">
+          {{ (juego.precio * 1.25) | currency:'CLP':'symbol':'1.0-0' }}
+        </span>
+      </div>
+
+      <button type="button" class="btn-comprar w-100 mt-3" (click)="agregarAlCarrito(juego)">
+        Comprar
+      </button>
+
+    </div>
+  </article>
+</main>

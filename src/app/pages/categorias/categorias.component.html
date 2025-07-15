@@ -1,0 +1,52 @@
+<main class="fade-in-up">
+  <div class="container">
+    <h1 class="slide-in-left">Juegos de {{ tipo | titlecase }}</h1>
+    <p class="subtitulo fade-in-up">Explora lo mejor en la categoría {{ tipo }}</p>
+
+    <!-- Grilla de Juegos -->
+    <section class="juegos-grid">
+      <article *ngFor="let juego of juegos" class="game-card">
+        <!-- Cuerpo clickeable del card para ir al detalle -->
+        <div class="card-inner" [routerLink]="['/juego', formatearRuta(juego.nombre)]" style="cursor: pointer;">
+          <img [src]="juego.imagen || 'assets/img/placeholder.png'" [alt]="juego.nombre">
+
+          <!-- Etiqueta de oferta -->
+          <div class="tag-sale pulse-animation" *ngIf="juego.oferta">
+            <span>OFERTA</span>
+          </div>
+
+          <h2>{{ juego.nombre }}</h2>
+          <p class="descripcion">{{ juego.descripcion }}</p>
+
+          <div class="precios">
+            <span class="precio-actual">
+              {{ juego.precio | currency:'CLP' }}
+            </span>
+            <span class="precio-original" *ngIf="juego.oferta">
+              {{ (juego.precio * 1.25) | currency:'CLP' }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Botones debajo de la tarjeta -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <!-- Botón Comprar -->
+          <button type="button" class="btn-comprar w-100 mt-3" (click)="agregarAlCarrito(juego)">
+            Agregar al carrito
+          </button>
+
+          <!-- Botón Editar solo visible para admin -->
+          <button *ngIf="sesion?.tipo === 'admin'" class="btn btn-warning btn-sm ms-2" (click)="editar(juego)">
+            Editar
+          </button>
+        </div>
+      </article>
+    </section>
+  </div>
+</main>
+
+<!-- CTA Final -->
+<section class="container fade-in-up text-center mt-5">
+  <h3>¿Listo para seguir explorando?</h3>
+  <a routerLink="/" class="btn-comprar">Volver al Inicio</a>
+</section>

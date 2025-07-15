@@ -1,0 +1,148 @@
+[
+  {
+    "nombre": "Catan",
+    "descripcion": "Coloniza una isla, recolecta recursos y negocia con tus rivales.",
+    "categoria": "estrategia",
+    "precio": 28990,
+    "oferta": true,
+    "imagen": "assets/img/CATAN.png",
+    "edad": "10+",
+    "jugadores": "3–4",
+    "duracion": "60–90 min",
+    "mecanicas": "En Catan colonizas una isla recolectando y comerciando recursos con otros jugadores. Construye caminos, asentamientos y ciudades, y usa la estrategia y el comercio para llevarte la victoria."
+  },
+  {
+    "nombre": "Carcassonne",
+    "descripcion": "Coloca losetas para construir caminos, ciudades y monasterios.",
+    "categoria": "estrategia",
+    "precio": 22500,
+    "oferta": false,
+    "imagen": "assets/img/CARCA.png",
+    "edad": "7+",
+    "jugadores": "2-5",
+    "duracion": "30-45 min",
+    "mecanicas": "En Carcassonne, colocas losetas para crear ciudades, caminos y campos. Coloca tus seguidores para puntuar zonas y compite por el control territorial con estrategia."
+  },
+  {
+    "nombre": "Terraforming Mars",
+    "descripcion": "Lidera una corporación para transformar Marte en un planeta habitable.",
+    "categoria": "estrategia",
+    "precio": 41990,
+    "oferta": false,
+    "imagen": "assets/img/Terra.png",
+    "edad": "12+",
+    "jugadores": "1-5",
+    "duracion": "90-120 min",
+    "mecanicas": "En Terraforming Mars, lideras una corporación con el reto de transformar Marte en un mundo habitable. Desarrolla proyectos ecológicos, científicos e industriales para incrementar temperatura, oxígeno y océanos."
+  },
+  {
+    "nombre": "Duelo de Magos",
+    "descripcion": "Combates mágicos intensos con cartas únicas y poderes especiales.",
+    "categoria": "cartas",
+    "precio": 22500,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Bluff Supremo",
+    "descripcion": "Engaña y adivina, pero no te dejes atrapar.",
+    "categoria": "cartas",
+    "precio": 19990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Poker Party",
+    "descripcion": "Clásico juego de cartas con reglas sencillas para grupos.",
+    "categoria": "cartas",
+    "precio": 15000,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Family Fun Night",
+    "descripcion": "Ideal para compartir risas y retos con toda la familia.",
+    "categoria": "familiares",
+    "precio": 29990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Batalla en la Cocina",
+    "descripcion": "Prepara platos deliciosos compitiendo por ser el chef número uno.",
+    "categoria": "familiares",
+    "precio": 24990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Desafío de Palabras",
+    "descripcion": "Ponte a prueba con este juego de vocabulario dinámico.",
+    "categoria": "familiares",
+    "precio": 19990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Memoria Mágica",
+    "descripcion": "Un divertido reto para mejorar la memoria y concentración.",
+    "categoria": "infantiles",
+    "precio": 14990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Mundo de Colores",
+    "descripcion": "Aprende los colores mientras juegas con amigos.",
+    "categoria": "infantiles",
+    "precio": 18990,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  },
+  {
+    "nombre": "Animalitos Traviesos",
+    "descripcion": "Juego interactivo con animales para aprender y reír.",
+    "categoria": "infantiles",
+    "precio": 17500,
+    "oferta": false,
+    "imagen": "assets/img/NOTFOUND.png",
+    "edad": "6+",
+    "jugadores": "2-4",
+    "duracion": "30-60 min",
+    "mecanicas": "Juego casual con reglas simples y dinámicas amigables para su categoría."
+  }
+
+
+]

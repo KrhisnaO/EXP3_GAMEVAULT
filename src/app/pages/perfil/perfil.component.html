@@ -1,0 +1,39 @@
+<div class="container fade-in-up" style="max-width: 500px; margin-top: 3rem;">
+  <h2 class="text-center mb-4">Mi Perfil 👤</h2>
+
+
+  <form (ngSubmit)="guardarCambios()" novalidate>
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre completo</label>
+      <input [(ngModel)]="sesion.nombre" name="nombre" id="nombre" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Nombre de usuario</label>
+      <input [(ngModel)]="sesion.username" name="username" id="username" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input [(ngModel)]="sesion.email" name="email" id="email" class="form-control" readonly />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input [(ngModel)]="sesion.password" name="password" id="password" type="password" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
+      <input type="date" id="fechaNacimiento" [(ngModel)]="sesion.fechaNacimiento"
+         name="fechaNacimiento" class="form-control" readonly>
+    </div>
+
+
+    <button type="submit" class="btn-comprar w-100 mt-3">Guardar Cambios</button>
+  </form>
+<br>
+  <!-- Mensajes de éxito y error -->
+  <div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+  <div *ngIf="exito" class="alert alert-success text-center">¡Perfil actualizado con éxito!</div>
+</div>

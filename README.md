@@ -1,4 +1,4 @@
-# EXP3_GAMEVAULT
+# Gamevault
 
 GameVault es una aplicación web desarrollada con Angular que permite explorar, gestionar y comprar juegos de mesa por categoría. Incluye funcionalidades tanto para usuarios como para administradores, como carrito de compras, edición de productos y administración de usuarios.
 
@@ -48,4 +48,3 @@ npm install
 
 ```bash
 ng serve
-

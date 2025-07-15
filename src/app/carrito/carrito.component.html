@@ -1,0 +1,49 @@
+<main class="container mt-5">
+  <h2 class="text-center mb-4">🛒 Mi Carrito</h2>
+
+  <div *ngIf="carrito.length === 0" class="card-inner" >
+    <section class="container fade-in-up text-center ">
+     <h5> Tu carrito está vacío.</h5>
+      <h2>¿Listo para seguir explorando?</h2>
+      <a routerLink="/" class="btn-comprar">Volver al Inicio</a>
+    </section>
+  </div>
+
+  <table *ngIf="carrito.length > 0" class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Juego</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of carrito; let i = index">
+        <td>{{ juego.nombre }}</td>
+        <td>{{ juego.categoria }}</td>
+        <td>{{ juego.precio | currency:'$' }}</td>
+        <td>
+          <input type="number" min="1" class="form-control" style="width: 80px; margin: auto;"
+            [(ngModel)]="juego.cantidad"
+            (change)="actualizarCantidad(i, juego.cantidad)">
+        </td>
+        <td>{{ juego.precio * juego.cantidad | currency:'$' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(i)">✖</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="carrito.length > 0" class="text-end fs-4 fw-bold mt-3 me-4">
+    Total: {{ total | currency:'$' }}
+  </div>
+
+  <div *ngIf="carrito.length > 0" class="d-flex justify-content-center mt-4 gap-3">
+    <button class="btn btn-outline-danger w-30 mt-5" (click)="vaciarCarrito()">Vaciar Carrito</button>
+    <button type="button" class="btn-comprar w-50 mt-5" (click)="comprar()">Comprar</button>
+  </div>
+</main>

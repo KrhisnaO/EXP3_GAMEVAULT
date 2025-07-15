@@ -1,0 +1,118 @@
+<div class="container py-4 mb-4 text-center">
+  <h2 >Panel de Administración</h2>
+  <p>Bienvenido, Aquí puedes gestionar los juegos y usuarios.</p>
+
+<!-- Gestión de Juegos -->
+<section class="mb-5">
+  <h2 class="mb-3">Agregar Juego</h2>
+  <form class="row g-3" (ngSubmit)="agregarJuego()">
+    <div class="col-md-4">
+      <input type="text" [(ngModel)]="nuevoJuego.nombre" name="nombreJuego" class="form-control" placeholder="Nombre del Juego" required>
+    </div>
+    <div class="col-md-3">
+      <select [(ngModel)]="nuevoJuego.categoria" name="categoriaJuego" class="form-control" required>
+        <option value="">Selecciona Categoría</option>
+        <option value="estrategia">Estrategia</option>
+        <option value="familiares">Familiares</option>
+        <option value="infantiles">Infantiles</option>
+        <option value="cartas">Cartas</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <input [(ngModel)]="nuevoJuego.descripcion" name="descripcion" type="text" class="form-control" placeholder="Descripción" />
+    </div>
+    <div class="col-md-2">
+      <input [(ngModel)]="nuevoJuego.edad" name="edad" type="number" class="form-control" placeholder="Edad" />
+    </div>
+    <div class="col-md-2">
+      <input [(ngModel)]="nuevoJuego.duracion" name="duracion" type="number" class="form-control" placeholder="Duración (min)" />
+    </div>
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="nuevoJuego.mecanicas" name="mecanicasJuego" class="form-control" placeholder="Mecánicas" required>
+    </div>
+    <div class="col-md-3">
+      <input type="number" [(ngModel)]="nuevoJuego.precio" name="precioJuego" class="form-control" placeholder="Precio" min="1" required>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn-comprar w-100 mt-3">Agregar Juego</button>
+    </div>
+  </form>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Descripción</th>
+        <th>Edad</th>
+        <th>Duracion</th>
+        <th>Mecanicas</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let juego of juegos; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ juego.nombre }}</td>
+        <td>{{ juego.categoria }}</td>
+        <td>{{ juego.descripcion }}</td>
+        <td>{{ juego.edad }}</td>
+        <td>{{ juego.duracion }}</td>
+        <td>{{ juego.mecanicas }}</td>
+        <td>${{ juego.precio }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarJuego(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Gestión de Usuarios -->
+<section>
+  <h2 class="mb-3">Agregar Usuario</h2>
+  <form class="row g-3" (ngSubmit)="agregarUsuario()">
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="nuevoUsuario.nombre" name="nombreUsuario" class="form-control" placeholder="Nombre" required>
+    </div>
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="nuevoUsuario.usuario" name="usuarioUsername" class="form-control" placeholder="Usuario" required>
+    </div>
+    <div class="col-md-3">
+      <input type="email" [(ngModel)]="nuevoUsuario.email" name="emailUsuario" class="form-control" placeholder="Correo" required>
+    </div>
+    <div class="col-md-2">
+      <input type="password" [(ngModel)]="nuevoUsuario.password" name="passwordUsuario" class="form-control" placeholder="Contraseña" required>
+    </div>
+    <div class="col-12 text-end">
+      <button type="submit" class="btn-comprar w-50 mt-3">Agregar Usuario</button>
+    </div>
+  </form>
+
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usuarios; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.usuario }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+</div>

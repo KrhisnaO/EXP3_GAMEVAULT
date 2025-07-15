@@ -1,0 +1,289 @@
+/* ——————————————————
+   VARIABLES GLOBALES
+   —————————————————— */
+   :root {
+    --bg: #1e1b4b;
+    --fg: #e2e8f0;
+    --card-bg: rgba(255,255,255,0.1);
+    --card-border: rgba(255,255,255,0.2);
+    --primary-purple: #8b5cf6;
+    --primary-pink:   #ec4899;
+    --sale-red:       #dc2626;
+    --radius:         1rem;
+    --anim-dur:       0.4s;
+  }
+
+  app-root, body, html {
+    background: var(--bg) !important;
+    color: var(--fg) !important;
+    min-height: 100vh;
+  }
+
+  /* ——————————————————
+     RESET + BASE
+     —————————————————— */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: "Inter", sans-serif;
+    color: var(--fg);
+    overflow-x:hidden;
+    line-height: 1.6;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+
+  }
+  .container {
+    width: 90%; max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  /* ——————————————————
+     HEADER
+     —————————————————— */
+  header {
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .back-button {
+    display: inline-flex;
+    align-items:center;
+    color: var(--fg);
+    font-weight:600;
+    gap:0.5rem;
+    text-decoration:none;
+    transition: color .3s;
+  }
+  .back-button:hover { color: var(--primary-pink); }
+  .logo-text {
+    display: inline-block;
+    margin-left:2rem;
+    font-size:1.75rem;
+    font-weight:800;
+    text-decoration:none;
+    color: var(--fg);
+    animation: logoGlow 3s ease-in-out infinite;
+  }
+
+  .header-animation .logo {
+    height: 60px;
+    width: auto;
+  }
+  /* ——————————————————
+     NAVBAR
+     —————————————————— */
+  .m-navbar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .m-navbar a {
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  .m-navbar a:hover {
+    color: var(--primary-pink);
+  }
+
+  /* ——————————————————
+     JUEGOS GRID
+     —————————————————— */
+  .juegos-grid {
+    display:grid;
+    gap:2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    padding:2rem 0;
+  }
+
+  /* ——————————————————
+     GAME CARD
+     —————————————————— */
+  .game-card {
+    animation: gameCardFloat var(--anim-dur) ease-out both;
+  }
+  .card-inner {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    overflow:hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .card-inner:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  }
+  /* Imagen */
+  .card-inner img {
+    width:100%; height:180px;
+    object-fit:cover;
+  }
+  /* Etiqueta OFERTA */
+  .tag-sale {
+    position:absolute; top:1rem; left:1rem;
+    background: var(--sale-red);
+    color:#fff;
+    padding:0.25rem 0.5rem;
+    border-radius:0.5rem;
+    display:inline-flex;
+    align-items:center;
+    gap:0.25rem;
+    font-size:0.75rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  /* Rating */
+  .rating {
+    position:absolute; top:1rem; right:1rem;
+    background: rgba(0,0,0,0.7);
+    color:#fff;
+    padding:0.25rem 0.5rem;
+    border-radius:0.5rem;
+    display:inline-flex;
+    align-items:center;
+    gap:0.25rem;
+    font-size:0.75rem;
+  }
+  /* Texto y botones */
+  .card-inner h2 {
+    margin:1rem;
+    font-size:1.25rem;
+  }
+  .descripcion {
+    margin:0 1rem 1rem;
+    font-size:0.9rem;
+    line-height:1.4;
+  }
+  .precios {
+    display:flex; align-items:center; justify-content:center; gap:0.5rem;
+    margin-bottom:1rem;
+  }
+  .precio-actual {
+    font-size:1.5rem; font-weight:700; color:#4ade80;
+  }
+  .precio-original {
+    font-size:1rem; color:rgba(255,255,255,0.6);
+    text-decoration: line-through;
+  }
+  .btn-comprar {
+    display:block;
+    margin:0 auto 1rem;
+    background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink));
+    color:#fff;
+    padding:0.75rem 1.5rem;
+    border: none;
+    border-radius:0.75rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:transform .2s, box-shadow .2s;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .btn-comprar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  }
+
+  /* ——————————————————
+     KEYFRAMES & UTILIDADES
+     —————————————————— */
+  @keyframes logoGlow {
+    0%,100% { text-shadow: 0 0 20px var(--primary-purple),0 0 40px var(--primary-purple); }
+    50%    { text-shadow: 0 0 30px var(--primary-pink),0 0 60px var(--primary-pink); }
+  }
+  @keyframes pulse {
+    0%,100% { transform:scale(1); opacity:1; }
+    50%     { transform:scale(1.1); opacity:0.8; }
+  }
+  @keyframes gameCardFloat {
+    0%   { transform: translateY(30px); opacity:0; }
+    100% { transform: translateY(0);     opacity:1; }
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0);   }
+  }
+  @keyframes slideInLeft {
+    from { opacity:0; transform: translateX(-50px); }
+    to   { opacity:1; transform: translateX(0);     }
+  }
+  @keyframes headerFloat {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+
+  /* Clases utilitarias */
+  .fade-in-up        { animation: fadeInUp var(--anim-dur) ease-out both; }
+  .slide-in-left    { animation: slideInLeft var(--anim-dur) ease-out both; }
+  .header-animation { animation: headerFloat 4s ease-in-out infinite; }
+
+  /* ——————————————————
+     RESPONSIVE
+     —————————————————— */
+  @media (max-width: 768px) {
+    .container { width: 95%; }
+    .card-inner:hover { transform: none; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+  }
+
+  .detalle-juego {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: flex-start;
+  }
+
+  .detalle-imagen img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: var(--sombra-suave);
+  }
+
+  .detalle-info {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .detalle-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .ficha-tecnica {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .ficha-tecnica li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .detalle-juego {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .detalle-info {
+      align-items: center;
+    }
+    .header-animation .logo {
+    max-height: 60px;
+  }
+  }
+
+main {
+   flex: 1;
+ }
+

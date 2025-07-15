@@ -1,0 +1,41 @@
+<!-- Header con logo animado -->
+<header class="header-animation">
+  <div class="container">
+    <img src="assets/img/LOGO_1.png" alt="Logo GameVault" class="logo" />
+    <h1 class="logo-text">GameVault</h1>
+    <p class="subtitulo fade-in-up">Tu destino definitivo para los mejores juegos de mesa</p>
+  </div>
+</header>
+
+<!-- Navbar -->
+<nav class="m-navbar">
+  <a routerLink="/">Inicio</a>
+  <a [routerLink]="['/categorias', 'estrategia']">Estrategia</a>
+  <a [routerLink]="['/categorias', 'familiares']">Familiares</a>
+  <a [routerLink]="['/categorias', 'infantiles']">Infantiles</a>
+  <a [routerLink]="['/categorias', 'cartas']">Cartas</a>
+  <a [routerLink]="['/preventas']">Juegos en preventa</a>  
+
+  <!-- SESIÓN ACTIVA -->
+  <ng-container *ngIf="sesion?.logueado; else invitado">
+
+    <!-- ADMIN -->
+    <ng-container *ngIf="sesion.tipo === 'admin'; else usuario">
+      <a routerLink="/admin">Panel Admin</a>
+      <a routerLink="/perfil">Perfil, {{ sesion.username }}</a>
+    </ng-container>
+
+    <!-- USUARIO -->
+    <ng-template #usuario>
+      <a routerLink="/perfil">Perfil, {{ sesion.username }}</a>
+      <a routerLink="/carrito">🛒Carrito</a>
+    </ng-template>
+
+    <a href="#" (click)="cerrarSesion()">Cerrar Sesión</a>
+  </ng-container>
+
+  <!-- SESIÓN INACTIVA -->
+  <ng-template #invitado>
+    <a routerLink="/login">Iniciar Sesión</a>
+  </ng-template>
+</nav>

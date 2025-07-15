@@ -1,0 +1,42 @@
+<main class="fade-in-up">
+    <div class="container">
+      <h1 class="slide-in-left">🎮 Juegos en Preventa</h1>
+      <p class="subtitulo fade-in-up">Explora los próximos lanzamientos antes que nadie</p>
+  
+      <!-- Grilla de Juegos -->
+      <section class="juegos-grid">
+        <article *ngFor="let juego of preventas" class="game-card">
+          <div class="card-inner" style="cursor: default;">
+            <!-- Imagen placeholder -->
+            <img [src]="juego.imagen || 'assets/img/placeholder.png'" [alt]="juego.nombre">
+
+  
+            <!-- Nombre -->
+            <h2>{{ juego.nombre }}</h2>
+  
+            <!-- Descripción -->
+            <p class="descripcion">{{ juego.descripcion }}</p>
+  
+            <!-- Fecha de lanzamiento -->
+            <p class="descripcion">
+              📅 Lanzamiento: {{ juego.fechaLanzamiento | date:'longDate' }}
+            </p>
+  
+            <!-- Precio -->
+            <div class="precios">
+              <span class="precio-actual">
+                {{ juego.precio | currency:'CLP' }}
+              </span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+  
+  <!-- CTA final -->
+  <section class="container fade-in-up text-center mt-5">
+    <h3>¿Listo para explorar más juegos?</h3>
+    <a routerLink="/" class="btn-comprar">Volver al Inicio</a>
+  </section>
+  
