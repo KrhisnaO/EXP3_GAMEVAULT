@@ -3,8 +3,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  templateUrl: './perfil.component.html'
 })
 export class PerfilComponent implements OnInit {
   sesion: any = {};

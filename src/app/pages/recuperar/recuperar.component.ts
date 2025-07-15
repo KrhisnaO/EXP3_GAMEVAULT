@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
  */
 @Component({
   selector: 'app-recuperar',
-  templateUrl: './recuperar.component.html',
-  styleUrls: ['./recuperar.component.css']
+  templateUrl: './recuperar.component.html'
 })
 export class RecuperarComponent implements OnInit {
   /**
