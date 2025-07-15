@@ -76,3 +76,27 @@ Servir la documentación en navegador
 npx compodoc -s
 ```
 Esto abrirá un servidor en: http://localhost:8080
+
+
+## 🐳 Dockerización y despliegue local
+Puedes ejecutar GameVault en un contenedor Docker utilizando NGINX para servir la versión compilada de producción.
+
+🔧 Preparar build de producción
+
+```bash
+npm install
+```
+```bash
+ng build --configuration=production
+```
+
+🛠️ Construir la imagen Docker
+Desde la raíz del proyecto:
+```bash
+docker build -t gamevault-app .
+```
+
+🚀 Ejecutar el contenedor
+```bash
+docker run -d -p 8080:80 --name gamevault-container gamevault-app
+```
