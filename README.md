@@ -7,7 +7,9 @@ GameVault es una aplicación web desarrollada con Angular que permite explorar, 
 - Angular CLI v16.2.16
 - TypeScript
 - Bootstrap (para estilos)
-- LocalStorage (persistencia local)
+- LocalStorage (persistencia local y datos)
+- Karma + Jasmine
+- Compodoc (para generación de documentación)
 
 ---
 
@@ -43,8 +45,34 @@ cd gamevault
 npm install
 ```
 
-
 ### 3. Ejecuta el servidor
 
 ```bash
 ng serve
+```
+
+## 4. 🧪 Pruebas Unitarias
+Este proyecto incluye pruebas unitarias para componentes clave utilizando Karma + Jasmine.
+
+Ejecutar las pruebas
+```bash
+ng test
+```
+Esto abrirá una ventana en el navegador con los resultados en tiempo real usando Karma.
+
+## 5. 📚 Documentación Técnica
+GameVault incluye generación automática de documentación con Compodoc.
+
+Instalar Compodoc
+```bash
+npm install -g @compodoc/compodoc
+```
+Generar la documentación
+```bash
+npx compodoc -p tsconfig.json
+```
+Servir la documentación en navegador
+```bash
+npx compodoc -s
+```
+Esto abrirá un servidor en: http://localhost:8080
