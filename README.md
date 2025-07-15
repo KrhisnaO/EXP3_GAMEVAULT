@@ -51,7 +51,7 @@ npm install
 ng serve
 ```
 
-## 4. 🧪 Pruebas Unitarias
+## 🧪 Pruebas Unitarias
 Este proyecto incluye pruebas unitarias para componentes clave utilizando Karma + Jasmine.
 
 Ejecutar las pruebas
@@ -60,7 +60,7 @@ ng test
 ```
 Esto abrirá una ventana en el navegador con los resultados en tiempo real usando Karma.
 
-## 5. 📚 Documentación Técnica
+## 📚 Documentación Técnica
 GameVault incluye generación automática de documentación con Compodoc.
 
 Instalar Compodoc
